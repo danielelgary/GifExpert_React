@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { PropTypes } from 'prop-types';
 
 export const AddCategories = ({ onNewCategory }) => {
 
@@ -28,9 +29,13 @@ export const AddCategories = ({ onNewCategory }) => {
         //haga un full refresh al formulario y trate de enviar los datos
         //para evitarlo, se usa el evento onSubmit 
         //y se maneja con un event.preventDefault
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} aria-label={'form'} >
             <input type={'text'} placeholder='Buscar Gif' value={inputValue} onChange={ onInputChange }/>
 
         </form>
     )
+};
+
+AddCategories.propTypes = {
+    onNewCategory: PropTypes.func.isRequired,
 }
